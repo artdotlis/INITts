@@ -64,7 +64,7 @@
         "*.{js,jsx,ts,tsx,html,css,md,json,yml,yaml}": [
             "prettier --config configs/dev/prettierrc.js --ignore-path configs/dev/prettierignore --write"
         ],
-        "*.{sh}": [
+        "*.sh": [
             "shellcheck"
         ]
     }
