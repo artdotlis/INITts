@@ -28,6 +28,7 @@ uninstall: exportNVM
 	rm -rf $(NVM_DIR)
 
 runCheck:
+	$(NPM) run lint
 	$(NPM) run lint:eslint
 	$(NPM) run lint:prettier
 

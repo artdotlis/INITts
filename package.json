@@ -54,6 +54,7 @@
         "build:wp": "rm -rf public/* && webpack --config configs/dev/webpack-config.js",
         "build": "npm run build:ts && npm run build:wp",
         "lint": "lint-staged",
+        "lint:shell": "shellcheck bin/deploy/*.sh bin/*.sh",
         "lint:eslint": "eslint -c configs/dev/eslintrc.json src/ts",
         "lint:prettier": "prettier --config configs/dev/prettierrc.js --ignore-path configs/dev/prettierignore -c src/"
     },
