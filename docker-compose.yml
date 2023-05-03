@@ -1,0 +1,17 @@
+version: '3'
+services:
+    deploy:
+        build:
+            context: .
+            dockerfile: ./Dockerfile
+        volumes:
+            - static-content:/var/www/
+    nginx:
+        image: docker.io/nginx:stable
+        volumes:
+            - static-content:/var/www/
+        ports:
+            - 8080:80
+
+volumes:
+    static-content:

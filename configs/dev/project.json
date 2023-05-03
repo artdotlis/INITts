@@ -1,0 +1,19 @@
+{
+    "conf": "configs",
+    "copy": {
+        "assets": {
+            "config": {
+                "from": "./configs/src",
+                "to": "configs/"
+            },
+            "logos": {
+                "from": "./extra/logos",
+                "to": "logos/"
+            },
+            "root": {
+                "from": "./assets/copy/root",
+                "to": ""
+            }
+        }
+    }
+}

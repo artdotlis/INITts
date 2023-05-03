@@ -1,0 +1,10 @@
+version: '3'
+services:
+    dev:
+        build:
+            context: .
+            dockerfile: .devcontainer/dev.Dockerfile
+        volumes:
+            - static-content:/workspace/public
+            - .:/workspace:cached
+            - ~/.gitconfig:/etc/gitconfig
