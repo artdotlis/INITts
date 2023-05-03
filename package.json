@@ -14,7 +14,7 @@
     "license": "The Unlicense",
     "repository": {
         "type": "git",
-        "url": "git@github.com:artdotlis/INITpy.git"
+        "url": "git@github.com:artdotlis/INITts.git"
     },
     "keywords": [
         "typescript",
