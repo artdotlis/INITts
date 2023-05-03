@@ -21,10 +21,7 @@
         "esModuleInterop": true,
         "isolatedModules": false,
         "forceConsistentCasingInFileNames": true,
-        "typeRoots": [
-            "../../node_modules/@types",
-            "../../src/ts/types"
-        ],
+        "typeRoots": ["../../node_modules/@types", "../../src/ts/types"],
         /* Type Checking */
         "strict": true,
         "noImplicitAny": true,
@@ -45,7 +42,5 @@
         "skipLibCheck": true,
         "checkJs": false
     },
-    "include": [
-        "../../src/ts/**/*"
-    ]
+    "include": ["../../src/ts/**/*"]
 }
