@@ -3,7 +3,7 @@
 echo "clean setup"
 make uninstall
 # misc
-dnf -y remove git make wget
+dnf -y remove git make wget gcc-c++
 # TODO: some packages are colliding with systemd-udev dependencies
 # dnf -y group remove "Development Tools"
 # autoremove
