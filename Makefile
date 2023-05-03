@@ -7,6 +7,7 @@ NPM=[ -s $(NVM_DIR)/nvm.sh ] && \. $(NVM_DIR)/nvm.sh && npm
 
 
 dev: setup 
+	rm -rf node_modules
 	$(NPM) install 
 	$(NPM) run hook
 
@@ -26,6 +27,9 @@ setup:
 
 uninstall: exportNVM
 	rm -rf $(NVM_DIR)
+
+runAct:
+	$(NPM) -v
 
 runCheck:
 	$(NPM) run lint
