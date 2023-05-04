@@ -15,8 +15,15 @@ function createCopyPath() {
     return path;
 }
 
+function getMode() {
+    if (PrConf.production) {
+        return 'production';
+    }
+    return 'development';
+}
+
 module.exports = {
-    mode: 'development',
+    mode: getMode(),
     entry: {
         index: './src/js/index.js',
     },
@@ -29,7 +36,7 @@ module.exports = {
         runtimeChunk: 'single',
         splitChunks: { chunks: 'all' },
         // TODO: Enable in prod mode
-        minimize: false,
+        minimize: PrConf.production,
         minimizer: [
             new TerserPlugin({
                 extractComments: /^\**!|@preserve|@license|@cc_on/i,
