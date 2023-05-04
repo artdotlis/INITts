@@ -1,5 +1,5 @@
 {
-    "production": false,
+    "production": true,
     "conf": "configs",
     "copy": {
         "assets": {

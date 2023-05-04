@@ -2,6 +2,7 @@
 . "$(dirname "$0")/_/husky.sh"
 PCO="$(dirname "$0")/../configs/dev/project.json"
 sed -i -E 's/(\"production\"\s*:)\s*[falstrue]+,/\1 true,/g' "$PCO"
+git add "$PCO"
 
 npm run-script lint
 npm run-script build
