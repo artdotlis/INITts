@@ -49,7 +49,7 @@
     },
     "scripts": {
         "postinstall": "if [ \"$NODE_ENV\" != 'production' ]; then npm run hook; fi",
-        "hook": "husky install .husky",
+        "hook": "husky install",
         "build:ts": "rm -rf src/js/* && tsc -p configs/dev/tsconfig.json --pretty",
         "build:wp": "rm -rf public/* && webpack --config configs/dev/webpack-config.js",
         "build": "npm run build:ts && npm run build:wp",
