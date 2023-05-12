@@ -16,6 +16,9 @@ devC: dev
 	sed -i -E 's/(\"production\"\s*:)\s*[falstrue]+,/\1 false,/g' $(PCO)
 	bash bin/deploy/post.sh
 
+tests: setup
+	$(NPM) install --omit optional
+
 build: setup
 	$(NPM) install --omit dev --omit optional
 
@@ -28,10 +31,10 @@ setup:
 	$(NVM) install 18 
 	$(NVM) use $(NODE)
 
-uninstall: exportNVM
+uninstall:
 	rm -rf $(NVM_DIR)
 
-runAct:
+runAct: 
 	$(NPM) -v
 
 runCheck:
