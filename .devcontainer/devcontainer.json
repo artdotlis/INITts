@@ -27,7 +27,7 @@
     },
     "dockerComposeFile": ["../docker-compose.yml", "dev.docker-compose.yml"],
     "name": "initts",
-    "postAttachCommand": "bash bin/deploy/post.sh && make devC",
+    "postAttachCommand": "make devC",
     "remoteUser": "root",
     "runServices": ["dev", "nginx"],
     "service": "dev",

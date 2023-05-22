@@ -16,5 +16,3 @@ mkdir -p "$ASC"
 echo "placeholder" >"$SCO"placeholder.txt
 echo "placeholder" >"$LOG"placeholder.txt
 echo "placeholder" >"$ASC"placeholder.txt
-
-git config --global --add safe.directory /workspace
