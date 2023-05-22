@@ -6,21 +6,20 @@ NVM_DIR=$(HOME)/.nvm
 NVM=[ -s $(NVM_DIR)/nvm.sh ] && \. $(NVM_DIR)/nvm.sh && nvm
 NPM=[ -s $(NVM_DIR)/nvm.sh ] && \. $(NVM_DIR)/nvm.sh && npm
 
-
-dev: setup
-	rm -rf node_modules
+dev: setup	
+	sed -i -E 's/(\"production\"\s*:)\s*[falstrue]+,/\1 false,/g' $(PCO)
 	$(NPM) install 
-	$(NPM) run hook
+	$(NPM) run hook	
 
 devC: dev
-	sed -i -E 's/(\"production\"\s*:)\s*[falstrue]+,/\1 false,/g' $(PCO)
 	bash bin/deploy/post.sh
 
 tests: setup
+	sed -i -E 's/(\"production\"\s*:)\s*[falstrue]+,/\1 false,/g' $(PCO)
 	$(NPM) install --omit optional
 
 build: setup
-	$(NPM) install --omit dev --omit optional
+	NODE_ENV=production $(NPM) install --omit dev --omit optional
 
 docs: setup
 	$(NPM) install --omit dev
@@ -30,6 +29,7 @@ setup:
 	curl -o- "https://raw.githubusercontent.com/nvm-sh/nvm/v$(NVMV)/install.sh" | bash
 	$(NVM) install 18 
 	$(NVM) use $(NODE)
+	rm -rf node_modules
 
 uninstall:
 	rm -rf $(NVM_DIR)
@@ -50,7 +50,7 @@ runTests:
 	echo "TODO"
 
 runBuild:
-	$(NPM) run build
+	NODE_ENV=production $(NPM) run build
 
 runUpdate:
 	$(NPM) update
