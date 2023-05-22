@@ -2,7 +2,7 @@
     "name": "initts",
     "version": "0.1.0",
     "description": "Initial bare-bone TypeScript project.",
-    "main": "public/html/index.html",
+    "main": "public/initts/html/index.html",
     "engines": {
         "node": "^18.12",
         "npm": "^9.1"
