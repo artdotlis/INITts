@@ -2,9 +2,10 @@
 
 docs/*
 extra/*
+assets/**/placeholder.txt
 public/*
 configs/src/*
-src/js/*
+src/initts/js/*
 *.cache
 ./tsconfig.json
 .VSCodeCounter

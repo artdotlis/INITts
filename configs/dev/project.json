@@ -2,17 +2,17 @@
     "production": true,
     "conf": "configs",
     "copy": {
-        "assets": {
+        "initts": {
             "config": {
-                "from": "./configs/src",
+                "from": "./configs/src/initts/",
                 "to": "configs/"
             },
             "logos": {
-                "from": "./extra/logos",
+                "from": "./extra/initts/logos",
                 "to": "logos/"
             },
             "root": {
-                "from": "./assets/copy/root",
+                "from": "./assets/initts/copy/root",
                 "to": ""
             }
         }

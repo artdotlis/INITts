@@ -13,15 +13,15 @@
         "module": "es2020",
         "moduleResolution": "node",
         "resolveJsonModule": true,
-        "rootDir": "../../src/ts",
+        "rootDir": "../../src/initts/ts",
         "preserveSymlinks": true,
         /* Emit */
-        "outDir": "../../src/js",
+        "outDir": "../../src/initts/js",
         "removeComments": false,
         "esModuleInterop": true,
         "isolatedModules": false,
         "forceConsistentCasingInFileNames": true,
-        "typeRoots": ["../../node_modules/@types", "../../src/ts/types"],
+        "typeRoots": ["../../node_modules/@types", "../../src/initts/ts/types"],
         /* Type Checking */
         "strict": true,
         "noImplicitAny": true,
@@ -42,5 +42,5 @@
         "skipLibCheck": true,
         "checkJs": false
     },
-    "include": ["../../src/ts/**/*"]
+    "include": ["../../src/initts/ts/**/*"]
 }

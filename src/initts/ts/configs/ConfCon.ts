@@ -6,7 +6,7 @@ interface FromTo {
 }
 
 interface PrCopy {
-    assets: FromTo;
+    initts: FromTo;
 }
 
 interface ConfConPrT {

@@ -14,7 +14,6 @@ dev: setup
 
 devC: dev
 	sed -i -E 's/(\"production\"\s*:)\s*[falstrue]+,/\1 false,/g' $(PCO)
-	bash bin/deploy/post.sh
 
 tests: setup
 	$(NPM) install --omit optional

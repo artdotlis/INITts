@@ -25,11 +25,11 @@ function getMode() {
 module.exports = {
     mode: getMode(),
     entry: {
-        index: './src/js/index.js',
+        index: './src/initts/js/index.js',
     },
     output: {
         filename: 'js/[name].bundle.js',
-        path: Path.resolve(__dirname, '../../public/'),
+        path: Path.resolve(__dirname, '../../public/initts/'),
         publicPath: '/',
     },
     optimization: {
@@ -46,7 +46,7 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             filename: 'index.html',
-            template: './src/html/index.html',
+            template: './src/initts/html/index.html',
             chunks: ['runtime', 'index'],
         }),
         new MiniCssExtractPlugin({
