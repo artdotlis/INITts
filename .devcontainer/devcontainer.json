@@ -1,5 +1,4 @@
 {
-    "containerUser": "root",
     "customizations": {
         "vscode": {
             "extensions": [
@@ -28,10 +27,10 @@
     "dockerComposeFile": ["../docker-compose.yml", "dev.docker-compose.yml"],
     "name": "initts",
     "postAttachCommand": "make devC",
-    "remoteUser": "root",
     "runServices": ["dev", "nginx"],
     "service": "dev",
     "shutdownAction": "stopCompose",
     "updateRemoteUserUID": true,
+    "remoteUser": "vscode",
     "workspaceFolder": "/workspace"
 }

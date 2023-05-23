@@ -1,6 +1,11 @@
 version: '3'
 services:
     dev:
+        user: vscode
+        environment:
+            - USERNAME=vscode
+            - USER_UID=1000
+            - USER_GID=1000
         build:
             context: .
             dockerfile: .devcontainer/dev.Dockerfile
