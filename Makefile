@@ -30,6 +30,7 @@ setup:
 	$(NVM) install 18 
 	$(NVM) use $(NODE)
 	rm -rf node_modules
+	git lfs install
 
 uninstall:
 	rm -rf $(NVM_DIR)
