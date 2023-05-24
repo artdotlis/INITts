@@ -42,6 +42,7 @@ runAct:
 runCheck:
 	$(NPM) run lint
 	$(NPM) run lint:eslint
+	$(NPM) run lint:shell
 	$(NPM) run lint:prettier
 
 runDocs:
