@@ -56,3 +56,6 @@ runBuild:
 
 runUpdate:
 	$(NPM) update
+
+commit: 
+	$(NPM) run cz
