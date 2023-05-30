@@ -48,6 +48,7 @@
         "lint-staged": "^13.2",
         "prettier": "^2.8",
         "shellcheck": "^2.2",
+        "ts-prune": "^0.10",
         "tslint-config-prettier": "^1.18"
     },
     "scripts": {
@@ -58,7 +59,7 @@
         "build": "npm run build:ts && npm run build:wp",
         "cz": "cz",
         "lint": "lint-staged",
-        "lint:prune": "ts-prune",
+        "lint:prune": "ts-prune -i src/initts/ts",
         "lint:commit": "commitlint -g configs/dev/commitlint.config.js --edit ${1}",
         "lint:shell": "shellcheck bin/deploy/*.sh bin/*.sh",
         "lint:eslint": "eslint -c configs/dev/eslintrc.json src/initts/ts",
