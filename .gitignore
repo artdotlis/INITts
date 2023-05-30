@@ -1,13 +1,13 @@
 # ---> Custom
 
-docs/*
-extra/*
+docs
+extra
 assets/**/placeholder.txt
-public/*
-configs/src/*
-src/initts/js/*
+public
+configs/src
+src/initts/js
 *.cache
-./tsconfig.json
+tsconfig.json
 .VSCodeCounter
 
 # https://github.com/github/gitignore
