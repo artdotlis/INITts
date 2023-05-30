@@ -58,13 +58,14 @@
         "build": "npm run build:ts && npm run build:wp",
         "cz": "cz",
         "lint": "lint-staged",
+        "lint:prune": "ts-prune",
         "lint:commit": "commitlint -g configs/dev/commitlint.config.js --edit ${1}",
         "lint:shell": "shellcheck bin/deploy/*.sh bin/*.sh",
         "lint:eslint": "eslint -c configs/dev/eslintrc.json src/initts/ts",
         "lint:prettier": "prettier --config configs/dev/prettierrc.js --ignore-path configs/dev/prettierignore -c src/"
     },
     "lint-staged": {
-        "*src/initts/ts/*.{ts,tsx}": [
+        "*src/initts/ts/**/*.{ts,tsx}": [
             "eslint -c configs/dev/eslintrc.json --fix"
         ],
         "*.{js,jsx,ts,tsx,html,css,md,json,yml,yaml}": [
