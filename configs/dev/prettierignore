@@ -1,6 +1,6 @@
 # Ignore directories/files:
 node_modules
 package-lock.json
-src/initts/js/*
+**/src/initts/js
 public
 extra
