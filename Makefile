@@ -41,9 +41,10 @@ runAct:
 
 runCheck:
 	$(NPM) run lint
-	$(NPM) run lint:eslint
-	$(NPM) run lint:shell
+	$(NPM) run lint:prune
 	$(NPM) run lint:prettier
+	$(NPM) run lint:shell
+	$(NPM) run lint:eslint
 
 runDocs:
 	echo "TODO"
