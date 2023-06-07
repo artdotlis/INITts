@@ -1,7 +1,7 @@
 TSV=5.0
 NODE=18
 NVMV=0.39.3
-PCO=configs/dev/project.json
+PCO=src/initts/ts/configs/project.js
 NVM_DIR=$(HOME)/.nvm
 NVM=[ -s $(NVM_DIR)/nvm.sh ] && \. $(NVM_DIR)/nvm.sh && nvm
 NPM=[ -s $(NVM_DIR)/nvm.sh ] && \. $(NVM_DIR)/nvm.sh && npm
