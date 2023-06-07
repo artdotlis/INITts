@@ -21,13 +21,16 @@
         "skeleton"
     ],
     "dependencies": {
+        "@babel/core": "^7.22",
+        "@babel/preset-env": "^7.22",
+        "babel-loader": "^9.1",
         "copy-webpack-plugin": "^11.0",
         "css-loader": "^6.7",
         "html-webpack-plugin": "^5.5",
         "mini-css-extract-plugin": "^2.7",
-        "typescript": "^5.0",
-        "webpack": "^5.81",
-        "webpack-cli": "^5.0"
+        "typescript": ">=5.0 <5.1",
+        "webpack": "^5.83",
+        "webpack-cli": "^5.1"
     },
     "devDependencies": {
         "@commitlint/cli": "^17.6",
@@ -49,7 +52,8 @@
         "prettier": "^2.8",
         "shellcheck": "^2.2",
         "ts-prune": "^0.10",
-        "tslint-config-prettier": "^1.18"
+        "tslint-config-prettier": "^1.18",
+        "eslint-import-resolver-typescript": "^3.5"
     },
     "scripts": {
         "postinstall": "if [ \"$NODE_ENV\" != 'production' ]; then npm run hook; fi",
@@ -60,17 +64,17 @@
         "cz": "cz",
         "lint": "lint-staged",
         "lint:prune": "ts-prune -i src/initts/ts",
-        "lint:commit": "commitlint -g configs/dev/commitlint.config.js --edit ${1}",
+        "lint:commit": "commitlint -g configs/dev/commitlint.cjs --edit ${1}",
         "lint:shell": "shellcheck bin/deploy/*.sh bin/*.sh",
         "lint:eslint": "eslint -c configs/dev/eslintrc.json src/initts/ts",
-        "lint:prettier": "prettier --config configs/dev/prettierrc.js --ignore-path configs/dev/prettierignore -c src/"
+        "lint:prettier": "prettier --config configs/dev/prettierrc.cjs --ignore-path configs/dev/prettierignore -c src/"
     },
     "lint-staged": {
         "*src/initts/ts/**/*.{ts,tsx}": [
             "eslint -c configs/dev/eslintrc.json --fix"
         ],
         "*.{js,jsx,ts,tsx,html,css,md,json,yml,yaml}": [
-            "prettier --config configs/dev/prettierrc.js --ignore-path configs/dev/prettierignore --write"
+            "prettier --config configs/dev/prettierrc.cjs --ignore-path configs/dev/prettierignore --write"
         ],
         "*.sh": [
             "shellcheck"
@@ -80,5 +84,6 @@
         "commitizen": {
             "path": "cz-conventional-changelog"
         }
-    }
+    },
+    "type": "module"
 }

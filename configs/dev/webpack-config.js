@@ -1,35 +1,44 @@
-const Path = require('path');
-const TerserPlugin = require('terser-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CopyPlugin = require('copy-webpack-plugin');
-const PrConf = require('./project.json');
+import * as PrConf from './project.json' assert { type: 'json' };
+import Path from 'path';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import CopyPlugin from 'copy-webpack-plugin';
+import TerserPlugin from 'terser-webpack-plugin';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 function createCopyPath() {
     const path = [];
-    for (const type in PrConf.copy) {
-        for (const frto in PrConf.copy[type]) {
-            path.push(PrConf.copy[type][frto]);
+    const defC = PrConf.default.copy;
+    for (const type in defC) {
+        for (const frto in defC[type]) {
+            path.push(defC[type][frto]);
         }
     }
     return path;
 }
 
 function getMode() {
-    if (PrConf.production) {
+    if (PrConf.default.production) {
         return 'production';
     }
     return 'development';
 }
 
-module.exports = {
+const config = {
+    target: 'web',
+    resolve: {
+        extensions: ['.js'],
+        alias: {
+            '@initts/src': Path.resolve(process.cwd(), 'src/initts/js/'),
+            '@extra': Path.resolve(process.cwd(), 'extra/'),
+        },
+    },
     mode: getMode(),
     entry: {
         index: './src/initts/js/index.js',
     },
     output: {
         filename: 'js/[name].bundle.js',
-        path: Path.resolve(__dirname, '../../public/initts/'),
+        path: Path.resolve(process.cwd(), 'public/initts/'),
         publicPath: '/',
     },
     optimization: {
@@ -99,6 +108,21 @@ module.exports = {
                     filename: 'img/[hash][ext][query]',
                 },
             },
+            {
+                test: /\.js$/,
+                use: [
+                    {
+                        loader: 'babel-loader',
+                        options: {
+                            presets: [
+                                ['@babel/preset-env', { targets: '>0.5%, not dead' }],
+                            ],
+                        },
+                    },
+                ],
+            },
         ],
     },
 };
+
+export default config;

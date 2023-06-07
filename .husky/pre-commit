@@ -7,5 +7,5 @@ NPM="[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" && npm"
 sed -i -E 's/(\"production\"\s*:)\s*[falstrue]+,/\1 true,/g' "$PCO"
 git add "$PCO"
 
-eval "$NPM" run-script lint
 eval "$NPM" run-script build
+eval "$NPM" run-script lint
