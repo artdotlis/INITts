@@ -6,7 +6,7 @@
         "allowJs": true,
         "allowSyntheticDefaultImports": true,
         /* Language and Environment */
-        "target": "es6",
+        "target": "es2020",
         "noLib": false,
         "useDefineForClassFields": true,
         /* Modules */
@@ -21,7 +21,7 @@
         "esModuleInterop": true,
         "isolatedModules": false,
         "forceConsistentCasingInFileNames": true,
-        "typeRoots": ["../../node_modules/@types", "../../src/initts/ts/types"],
+        "typeRoots": ["../../node_modules/@types", "../../src/initts/ts/@types"],
         /* Type Checking */
         "strict": true,
         "noImplicitAny": true,
@@ -40,7 +40,11 @@
         "noImplicitOverride": true,
         "noPropertyAccessFromIndexSignature": true,
         "skipLibCheck": true,
-        "checkJs": false
+        "checkJs": false,
+        "paths": {
+            "@initts/src/*": ["../../src/initts/ts/*"],
+            "@extra/*": ["../../extra/*"]
+        }
     },
     "include": ["../../src/initts/ts/**/*"]
 }

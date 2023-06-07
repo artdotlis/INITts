@@ -39,7 +39,7 @@ runAct:
 	$(NPM) -v
 	bash
 
-runCheck:
+runCheck: runBuild
 	$(NPM) run lint
 	$(NPM) run lint:prune
 	$(NPM) run lint:eslint
