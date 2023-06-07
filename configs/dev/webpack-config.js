@@ -1,4 +1,4 @@
-import * as PrConf from './project.json' assert { type: 'json' };
+import PrConf from '../../src/initts/ts/configs/project.js';
 import Path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import CopyPlugin from 'copy-webpack-plugin';
@@ -7,7 +7,7 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 function createCopyPath() {
     const path = [];
-    const defC = PrConf.default.copy;
+    const defC = PrConf.copy;
     for (const type in defC) {
         for (const frto in defC[type]) {
             path.push(defC[type][frto]);
@@ -17,7 +17,7 @@ function createCopyPath() {
 }
 
 function getMode() {
-    if (PrConf.default.production) {
+    if (PrConf.production) {
         return 'production';
     }
     return 'development';
