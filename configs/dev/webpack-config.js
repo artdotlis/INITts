@@ -29,7 +29,10 @@ const config = {
         extensions: ['.js'],
         alias: {
             '@initts/src': Path.resolve(process.cwd(), 'src/initts/js/'),
+            '@initts/root': Path.resolve(process.cwd(), 'src/initts/'),
             '@extra': Path.resolve(process.cwd(), 'extra/'),
+            '@configs': Path.resolve(process.cwd(), 'configs/'),
+            '@assets': Path.resolve(process.cwd(), 'assets/'),
         },
     },
     mode: getMode(),
