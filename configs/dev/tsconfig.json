@@ -43,7 +43,10 @@
         "checkJs": false,
         "paths": {
             "@initts/src/*": ["../../src/initts/ts/*"],
-            "@extra/*": ["../../extra/*"]
+            "@initts/root/*": ["../../src/initts/*"],
+            "@extra/*": ["../../extra/*"],
+            "@configs/*": ["../../configs/*"],
+            "@assets/*": ["../../assets/*"]
         }
     },
     "include": ["../../src/initts/ts/**/*"]
