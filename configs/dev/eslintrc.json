@@ -44,7 +44,9 @@
                 "ignoreComments": true
             }
         ],
-        "complexity": ["error", 10]
+        "complexity": ["error", 10],
+        "no-underscore-dangle": "warn",
+        "import/extensions": "warn"
     },
     "settings": {
         "import/resolver": {
