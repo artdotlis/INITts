@@ -1,15 +1,15 @@
-FROM docker.io/rockylinux:9
+FROM docker.io/rockylinux:9 AS builder
 
 COPY . /tmp/app
 
 WORKDIR /tmp/app
 
-RUN bash ./bin/deploy.sh
+RUN CGO_ENABLED=0 bash ./bin/deploy.sh
 
-WORKDIR /
+FROM docker.io/nginx:stable
 
-RUN rm -rf /tmp/app
+WORKDIR /var/www/
 
-ENTRYPOINT ["/bin/sh", "/entrypoint.sh"]
+COPY --from=builder /var/www/ ./
 
 HEALTHCHECK --interval=5m --timeout=3s CMD /health.sh
