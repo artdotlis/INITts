@@ -4,3 +4,4 @@ package-lock.json
 **/src/initts/js
 public
 extra
+webpack-config.js

@@ -26,9 +26,9 @@ function getMode() {
 const config = {
     target: 'web',
     resolve: {
-        extensions: ['.js'],
+        extensions: [".tsx", ".ts", "js"],
         alias: {
-            '@initts/src': Path.resolve(process.cwd(), 'src/initts/js/'),
+            '@initts/src': Path.resolve(process.cwd(), 'src/initts/ts/'),
             '@initts/root': Path.resolve(process.cwd(), 'src/initts/'),
             '@extra': Path.resolve(process.cwd(), 'extra/'),
             '@configs': Path.resolve(process.cwd(), 'configs/'),
@@ -37,7 +37,7 @@ const config = {
     },
     mode: getMode(),
     entry: {
-        index: './src/initts/js/index.js',
+        index: './src/initts/ts/index.ts',
     },
     output: {
         filename: 'js/[name].bundle.js',
@@ -70,6 +70,10 @@ const config = {
     ],
     module: {
         rules: [
+            {
+                test: /\.tsx?$/,
+                use: 'ts-loader',
+            },
             {
                 test: /\.css$/,
                 use: [
@@ -124,6 +128,7 @@ const config = {
                     },
                 ],
             },
+            
         ],
     },
 };
