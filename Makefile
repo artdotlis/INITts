@@ -4,10 +4,14 @@ NVMV=0.39.3
 PCO=src/initts/ts/configs/project.js
 NVM_DIR=$(HOME)/.nvm
 NVM=[ -s $(NVM_DIR)/nvm.sh ] && \. $(NVM_DIR)/nvm.sh && nvm
-NPM=[ -s $(NVM_DIR)/nvm.sh ] && \. $(NVM_DIR)/nvm.sh && npm
+ifeq ($(shell grep "production:\s*true," $(PCO)),)
+NODE_ENV=development
+else
+NODE_ENV=production
+endif
+NPM=[ -s $(NVM_DIR)/nvm.sh ] && \. $(NVM_DIR)/nvm.sh && NODE_ENV=$(NODE_ENV) npm
 
-dev: setup	
-	sed -i -E 's/(\"production\"\s*:)\s*[falstrue]+,/\1 false,/g' $(PCO)
+dev: setup
 	$(NPM) install 
 	$(NPM) run hook	
 
@@ -15,17 +19,15 @@ devC: dev
 	bash bin/deploy/post.sh
 
 tests: setup
-	sed -i -E 's/(\"production\"\s*:)\s*[falstrue]+,/\1 false,/g' $(PCO)
 	$(NPM) install --omit optional
 
-build: setup
-	NODE_ENV=production $(NPM) install --omit dev --omit optional
+build: setup 
+	$(NPM) install --omit dev --omit optional
 
 docs: setup
 	$(NPM) install --omit dev
 
 setup:
-	sed -i -E 's/(\"production\"\s*:)\s*[falstrue]+,/\1 true,/g' $(PCO)
 	curl -o- "https://raw.githubusercontent.com/nvm-sh/nvm/v$(NVMV)/install.sh" | bash
 	$(NVM) install 18 
 	$(NVM) use $(NODE)
@@ -38,6 +40,12 @@ uninstall:
 runAct: 
 	$(NPM) -v
 	bash
+
+actDev:	
+	sed -i -E 's/(production\s*:)\s*[falstrue]+,/\1 false,/g' $(PCO)
+
+actProd:
+	sed -i -E 's/(production\s*:)\s*[falstrue]+,/\1 true,/g' $(PCO)
 
 runCheck: runBuild
 	$(NPM) run lint
@@ -53,7 +61,7 @@ runTests:
 	echo "TODO"
 
 runBuild:
-	NODE_ENV=production $(NPM) run build
+	$(NPM) run build
 
 runUpdate:
 	$(NPM) update
