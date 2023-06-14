@@ -28,6 +28,7 @@
         "css-loader": "^6.7",
         "html-webpack-plugin": "^5.5",
         "mini-css-extract-plugin": "^2.7",
+        "ts-loader": "^9.4",
         "typescript": ">=5.0 <5.1",
         "webpack": "^5.83",
         "webpack-cli": "^5.1"
@@ -44,6 +45,7 @@
         "eslint-config-airbnb-base": "^15.0",
         "eslint-config-airbnb-typescript": "^17.0",
         "eslint-config-prettier": "^8.8",
+        "eslint-import-resolver-typescript": "^3.5",
         "eslint-plugin-import": "^2.27",
         "eslint-plugin-prettier": "^4.2",
         "husky": "^8.0",
@@ -52,15 +54,14 @@
         "prettier": "^2.8",
         "shellcheck": "^2.2",
         "ts-prune": "^0.10",
-        "tslint-config-prettier": "^1.18",
-        "eslint-import-resolver-typescript": "^3.5"
+        "tslint-config-prettier": "^1.18"
     },
     "scripts": {
         "postinstall": "if [ \"$NODE_ENV\" != 'production' ]; then npm run hook; fi",
         "hook": "husky install",
         "build:ts": "rm -rf src/initts/js/* && tsc -p configs/dev/tsconfig.json --pretty",
         "build:wp": "rm -rf public/* && webpack --config configs/dev/webpack-config.js",
-        "build": "npm run build:ts && npm run build:wp",
+        "build": "npm run build:wp",
         "cz": "cz",
         "lint": "lint-staged",
         "lint:prune": "ts-prune -i src/initts/ts",
