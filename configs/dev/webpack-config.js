@@ -16,6 +16,12 @@ function createCopyPath() {
     return path;
 }
 
+const BOpt = {
+    presets: [
+        ['@babel/preset-env', { targets: '>0.5%, not dead' }],
+    ],
+}
+
 function getMode() {
     if (PrConf.production) {
         return 'production';
@@ -72,7 +78,13 @@ const config = {
         rules: [
             {
                 test: /\.tsx?$/,
-                use: 'ts-loader',
+                use: [                    
+                    {
+                        loader: 'babel-loader',
+                        options: BOpt,
+                    },
+                    { loader: 'ts-loader'}
+                ],
             },
             {
                 test: /\.css$/,
@@ -116,15 +128,11 @@ const config = {
                 },
             },
             {
-                test: /\.js$/,
+                test: /\.js?$/,
                 use: [
                     {
                         loader: 'babel-loader',
-                        options: {
-                            presets: [
-                                ['@babel/preset-env', { targets: '>0.5%, not dead' }],
-                            ],
-                        },
+                        options: BOpt,
                     },
                 ],
             },
