@@ -83,7 +83,12 @@ const config = {
                         loader: 'babel-loader',
                         options: BOpt,
                     },
-                    { loader: 'ts-loader'}
+                    { 
+                        loader: 'ts-loader',
+                        options: {
+                            configFile: Path.resolve(process.cwd(), 'configs/dev/tsconfig.json')
+                        }
+                    }
                 ],
             },
             {
