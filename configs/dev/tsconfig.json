@@ -6,7 +6,7 @@
         "allowJs": true,
         "allowSyntheticDefaultImports": true,
         /* Language and Environment */
-        "target": "es2020",
+        "target": "es6",
         "noLib": false,
         "useDefineForClassFields": true,
         /* Modules */
