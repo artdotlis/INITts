@@ -26,7 +26,7 @@
     },
     "dockerComposeFile": ["../docker-compose.yml", "dev.docker-compose.yml"],
     "name": "initts",
-    "postAttachCommand": "make actDev && make devC",
+    "postAttachCommand": "make actDev && make dev",
     "runServices": ["dev", "nginx"],
     "service": "dev",
     "shutdownAction": "stopCompose",

@@ -6,17 +6,16 @@ NVM_DIR=$(HOME)/.nvm
 NVM=[ -s $(NVM_DIR)/nvm.sh ] && \. $(NVM_DIR)/nvm.sh && nvm
 ifeq ($(shell grep "production:\s*true," $(PCO)),)
 NODE_ENV=development
+POST=bash bin/deploy/post.sh
 else
 NODE_ENV=production
+POST=echo "no post in production"
 endif
 NPM=[ -s $(NVM_DIR)/nvm.sh ] && \. $(NVM_DIR)/nvm.sh && NODE_ENV=$(NODE_ENV) npm
 
 dev: setup
 	$(NPM) install 
 	$(NPM) run hook	
-
-devC: dev
-	bash bin/deploy/post.sh
 
 tests: setup
 	$(NPM) install --omit optional
@@ -33,6 +32,7 @@ setup:
 	$(NVM) use $(NODE)
 	rm -rf node_modules
 	git lfs install
+	$(POST)
 
 uninstall:
 	rm -rf $(NVM_DIR)

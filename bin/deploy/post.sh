@@ -1,5 +1,6 @@
 #!/bin/bash
 
+echo "post hook"
 TSC="$(pwd)/configs/dev/tsconfig.json"
 LTSC="$(pwd)/tsconfig.json"
 SCO="$(pwd)/configs/src/initts/"
@@ -12,7 +13,3 @@ sed -i -E 's/\"\.\.\/\.\.\//"\.\//g' "$LTSC"
 mkdir -p "$SCO"
 mkdir -p "$LOG"
 mkdir -p "$ASC"
-
-echo "placeholder" >"$SCO"placeholder.txt
-echo "placeholder" >"$LOG"placeholder.txt
-echo "placeholder" >"$ASC"placeholder.txt
