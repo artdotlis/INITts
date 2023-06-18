@@ -13,17 +13,18 @@ POST=echo "no post in production"
 endif
 NPM=[ -s $(NVM_DIR)/nvm.sh ] && \. $(NVM_DIR)/nvm.sh && NODE_ENV=$(NODE_ENV) npm
 
-dev: setup
+dev: actDev setup
 	$(NPM) install 
-	$(NPM) run hook	
+	$(NPM) run hook
 
-tests: setup
+tests: actDev setup
 	$(NPM) install --omit optional
 
 build: setup 
 	$(NPM) install --omit dev --omit optional
 
 docs: setup
+	echo "TODO docs not implemented - actDev or actProd required"
 	$(NPM) install --omit dev
 
 setup:
