@@ -5,7 +5,7 @@
 
 ---
 
-Initial bare-bone TypeScript project.
+Initial bare-bone TypeScript front-end project.
 
 ## Requirements (development)
 
