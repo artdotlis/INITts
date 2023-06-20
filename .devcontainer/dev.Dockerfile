@@ -28,4 +28,6 @@ RUN git config --global --add safe.directory $WORK_DIR
 
 USER $USERNAME
 
+RUN mkdir -p "${WORK_DIR}/public"
+
 ENTRYPOINT ["/bin/sh", "/entrypoint.sh"]
