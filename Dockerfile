@@ -4,7 +4,7 @@ COPY . /tmp/app
 
 WORKDIR /tmp/app
 
-RUN CGO_ENABLED=0 bash ./bin/deploy.sh
+RUN mkdir -p "${HOME}/.local/bin" && CGO_ENABLED=0 bash ./bin/deploy.sh
 
 FROM docker.io/nginx:stable
 

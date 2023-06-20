@@ -21,6 +21,7 @@ RUN groupadd --gid $USER_GID $USERNAME \
 
 RUN mkdir -p $WORK_DIR && \
     chown $USERNAME:$USERNAME -R $WORK_DIR && \
+    mkdir -p "${HOME}/.local/bin" && \
     chown $USERNAME:$USERNAME -R $HOME
 
 RUN git config --global --add safe.directory $WORK_DIR
