@@ -53,7 +53,6 @@ const config = {
     optimization: {
         runtimeChunk: 'single',
         splitChunks: { chunks: 'all' },
-        // TODO: Enable in prod mode
         minimize: PrConf.production,
         minimizer: [
             new TerserPlugin({
@@ -133,7 +132,7 @@ const config = {
                 },
             },
             {
-                test: /\.js?$/,
+                test: /\.js$/,
                 use: [
                     {
                         loader: 'babel-loader',
