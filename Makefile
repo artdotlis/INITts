@@ -44,9 +44,15 @@ runAct:
 
 actDev:	
 	sed -i -E 's/(production\s*:)\s*[falstrue]+,/\1 false,/g' $(PCO)
+	$(eval NODE_ENV=development)
+	$(eval POST=bash bin/deploy/post.sh)
+	$(eval NPM=[ -s $(NVM_DIR)/nvm.sh ] && \. $(NVM_DIR)/nvm.sh && NODE_ENV=$(NODE_ENV) npm)
 
 actProd:
 	sed -i -E 's/(production\s*:)\s*[falstrue]+,/\1 true,/g' $(PCO)
+	$(eval NODE_ENV=production)
+	$(eval POST=echo "no post in production")
+	$(eval NPM=[ -s $(NVM_DIR)/nvm.sh ] && \. $(NVM_DIR)/nvm.sh && NODE_ENV=$(NODE_ENV) npm)
 
 runCheck: runBuild
 	$(NPM) run lint
