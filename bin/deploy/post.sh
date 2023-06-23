@@ -11,5 +11,8 @@ cat "$TSC" >"$LTSC"
 sed -i -E 's/\"\.\.\/\.\.\//"\.\//g' "$LTSC"
 
 mkdir -p "$SCO"
+touch "$SCO/placeholder"
 mkdir -p "$LOG"
+touch "$LOG/placeholder"
 mkdir -p "$ASC"
+touch "$ASC/placeholder"
