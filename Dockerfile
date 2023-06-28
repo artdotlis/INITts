@@ -14,6 +14,6 @@ COPY --from=builder /var/www/ ./
 
 COPY --from=builder /tmp/app /tmp/app
 
-RUN if grep -e "production:\s*true," "/tmp/app/src/strinfui/ts/configs/project.js";then rm -rf /tmp/app; fi
+RUN if grep -e "production:\s*true," "/tmp/app/src/initts/ts/configs/project.js";then rm -rf /tmp/app; fi
 
 HEALTHCHECK --interval=5m --timeout=3s CMD /health.sh
