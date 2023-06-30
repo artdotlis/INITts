@@ -4,8 +4,6 @@ root_path="$(dirname "$(realpath "$0")")/../.."
 
 echo "prepare for packaging"
 
-rm -rf "$root_path/extra"
-
 echo "create empty config"
 mkdir -p "$root_path/configs/src/initts/"
 if [ ! -f "$root_path/configs/src/initts/config.json" ]; then
