@@ -46,13 +46,20 @@ const config = {
         index: './src/initts/ts/index.ts',
     },
     output: {
-        filename: 'js/[name].bundle.js',
+        filename: 'js/[name].[chunkhash].bundle.js',
         path: Path.resolve(process.cwd(), 'public/initts/'),
         publicPath: '/',
     },
     optimization: {
         runtimeChunk: 'single',
-        splitChunks: { chunks: 'all' },
+        splitChunks: { 
+            cacheGroups: {
+                vendor: {
+                    test: /[\\/]node_modules[\\/]/,
+                    chunks: "all"
+                },
+            },
+        },
         minimize: PrConf.production,
         minimizer: [
             new TerserPlugin({
@@ -63,11 +70,11 @@ const config = {
     plugins: [
         new HtmlWebpackPlugin({
             filename: 'index.html',
-            template: './src/initts/html/index.html',
-            chunks: ['runtime', 'index'],
+            template: 'src/initts/html/index.html',
+            chunks: ['runtime', 'index', 'vendor'],
         }),
         new MiniCssExtractPlugin({
-            filename: './css/[name].[fullhash].bundle.css',
+            filename: 'css/[name].[chunkhash].bundle.css',
         }),
         new CopyPlugin({
             patterns: createCopyPath(),
