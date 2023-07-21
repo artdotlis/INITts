@@ -71,7 +71,7 @@ const config = {
         new HtmlWebpackPlugin({
             filename: 'index.html',
             template: 'src/initts/html/index.html',
-            chunks: ['runtime', 'index', 'vendor'],
+            chunks: ['index']
         }),
         new MiniCssExtractPlugin({
             filename: 'css/[name].[chunkhash].bundle.css',
