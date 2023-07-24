@@ -5,7 +5,7 @@ import CopyPlugin from 'copy-webpack-plugin';
 import TerserPlugin from 'terser-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { PurgeCSSPlugin } from 'purgecss-webpack-plugin';
-import Glob from 'glob';
+import {globSync} from 'glob';
 
 function createCopyPath() {
     const path = [];
@@ -85,7 +85,7 @@ const config = {
             filename: 'css/[name].[chunkhash].bundle.css',
         }),
         new PurgeCSSPlugin({
-            paths: Glob.sync(`${process.cwd()}/src/initts/**/*`,  { nodir: true }),
+            paths: globSync(`${process.cwd()}/src/initts/**/*`,  { nodir: true }),
             only: ["vendor", "style"],
         }),
         new CopyPlugin({
