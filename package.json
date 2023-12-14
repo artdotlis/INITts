@@ -4,8 +4,7 @@
     "description": "Initial bare-bone TypeScript project.",
     "main": "src/initts/ts/index.ts",
     "engines": {
-        "node": "^18.12",
-        "npm": "^9.1"
+        "node": "^18.12"
     },
     "author": {
         "name": "Artur Lissin",
